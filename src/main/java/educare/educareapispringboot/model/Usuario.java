@@ -30,7 +30,7 @@ public class Usuario {
     @NotNull(message = "Email não pode ficar vazio")
     @NotEmpty(message = "Email não pode ficar em branco")
     @NotBlank(message = "Email não pode ficar em branco")
-    @Column(length = 100)
+    @Column(length = 100, unique = true)
     private String email;
 
     @Column(length = 1000)
@@ -38,5 +38,8 @@ public class Usuario {
     @NotEmpty(message = "Senha não pode ficar em branco")
     @NotBlank(message = "Senha não pode ficar em branco")
     private String senha;
+
+    @NotNull(message = "Ativo não pode ficar vazio")
+    private boolean ativo;
 
 }
