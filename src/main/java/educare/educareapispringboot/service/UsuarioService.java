@@ -13,8 +13,7 @@ public class UsuarioService {
     private UsuarioRepository usuarioRepository;
 
 
-    public Boolean validaUsuario(UsuarioRequestValidation urv) {
-        Usuario usuario = usuarioRepository.findByEmailAndSenha(urv.getEmail(), urv.getSenha());
-        return usuario != null;
+    public Usuario validaUsuario(UsuarioRequestValidation urv) {
+        return usuarioRepository.findByEmailAndSenha(urv.getEmail(), urv.getSenha());
     }
 }
