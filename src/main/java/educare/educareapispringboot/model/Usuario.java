@@ -19,27 +19,27 @@ public class Usuario {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotNull(message = "Nome não pode ficar vazio")
-    @NotEmpty(message = "Nome não pode ficar em branco")
-    @NotBlank(message = "Nome não pode ficar em branco")
-    @Size(min = 3, max = 100, message = "Nome deverá ter entre 3 e 100 caracteres")
+    @NotNull(message = "NOME DO USUÁRIO NÃO PODE FICAR NULO")
+    @NotEmpty(message = "NOME DO USUÁRIO PRECISA SER PREENCHIDO")
+    @NotBlank(message = "NOME DO USUÁRIO NÃO PODE FICAR EM BRANCO")
+    @Size(min = 2, max = 100, message = "NOME DO USUÁRIO DEVE TER ENTRE 2 E 100 CARACTERES")
     @Column(length = 100)
     private String nome;
 
-    @Email(message = "Email não é válido")
-    @NotNull(message = "Email não pode ficar vazio")
-    @NotEmpty(message = "Email não pode ficar em branco")
-    @NotBlank(message = "Email não pode ficar em branco")
+    @Email(message = "EMAIL NÃO É VÁLIDO")
+    @NotNull(message = "EMAIL NÃO PODE FICAR NULO")
+    @NotEmpty(message = "EMAIL PRECISA SER PREENCHIDO")
+    @NotBlank(message = "EMAIL NÃO PODE FICAR EM BRANCO")
     @Column(length = 100, unique = true)
     private String email;
 
     @Column(length = 1000)
-    @NotNull(message = "Senha não pode ficar vazio")
-    @NotEmpty(message = "Senha não pode ficar em branco")
-    @NotBlank(message = "Senha não pode ficar em branco")
+    @NotNull(message = "SENHA NÃO PODE FICAR NULO")
+    @NotEmpty(message = "SENHA PRECISA SER PREENCHIDO")
+    @NotBlank(message = "SENHA NÃO PODE FICAR EM BRANCO")
     private String senha;
 
-    @NotNull(message = "Ativo não pode ficar vazio")
+    @NotNull(message = "ATIVO NÃO PODE FICAR VAZIO")
     private boolean ativo;
 
 }
