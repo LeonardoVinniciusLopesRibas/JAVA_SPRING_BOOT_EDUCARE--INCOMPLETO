@@ -32,7 +32,7 @@ public class Crianca {
     @Column(length = 100)
     private String nome;
     private Pai pai;
-    private Mae mae;
+   // private Mae mae;
 
     private Responsavel responsavel;
 

@@ -15,8 +15,8 @@ import org.hibernate.validator.constraints.br.CPF;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "mae")
 @Entity
+@Table(name = "mae")
 public class Mae {
 
     @Id
