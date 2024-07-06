@@ -34,29 +34,28 @@ public class Crianca {
     private Pai pai;
     private Mae mae;
 
-    private PessoaReserva pessoaReserva;
     private Responsavel responsavel;
 
-    private Boolean restricaoAlimentarTrue;
+    private boolean restricaoAlimentarTrue;
 
     @Size(max = 200, message = "RESTRIÇÃO ALIMENTAR DEVE POSSUIR NO MÁXIMO 200 CARACTERES")
     @Column(length = 200)
     private String restricaoAlimentar;
-    private Boolean alergiaTrue;
+    private boolean alergiaTrue;
 
     @Size(max = 200, message = "ALERGIA DEVE POSSUIR NO MÁXIMO 200 CARACTERES")
     @Column(length = 200)
     private String alergia;
-    private Boolean cirurgiaTrue;
+    private boolean cirurgiaTrue;
 
     @Size(max = 200, message = "CIRURGIA DEVE POSSUIR NO MÁXIMO 200 CARACTERES")
     @Column(length = 200)
     private String cirurgia;
 
-    @NotNull(message = "DATA DE ANIVERSÁRIO DA CRIANÇA É OBRIGATÓRIO")
-    @NotEmpty(message = "DATA DE ANIVERSÁRIO DA CRIANÇA DEVE SER PREENCHIDO")
-    @NotBlank(message = "DATA DE ANIVERSÁRIO DA CRIANÇA DEVE SER PREENCHIDO")
-    private LocalDate dataAniversario;
+    @NotNull(message = "DATA DE NASCIMENTO DA CRIANÇA É OBRIGATÓRIO")
+    @NotEmpty(message = "DATA DE NASCIMENTO DA CRIANÇA DEVE SER PREENCHIDO")
+    @NotBlank(message = "DATA DE NASCIMENTO DA CRIANÇA DEVE SER PREENCHIDO")
+    private LocalDate dataNascimento;
 
     @NotNull(message = "ATIVO NÃO PODE FICAR VAZIO")
     private boolean ativo;
