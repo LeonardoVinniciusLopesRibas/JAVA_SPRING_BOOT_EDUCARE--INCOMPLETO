@@ -65,6 +65,7 @@ public class Mae {
     @NotNull(message = "MARQUE SE É WHATSAPP OU NÃO")
     private boolean telefoneReservaWhatsapp;
 
+
     private String cep;
     private String logradouro;
     private String complemento;
@@ -77,7 +78,12 @@ public class Mae {
     private String numero;
     private String siafi;
 
+
     @NotNull(message = "ATIVO NÃO PODE FICAR VAZIO")
     private boolean ativo;
+
+    @Lob
+    @Column(name = "qrCodeMae")
+    private String qrCode;
 
 }

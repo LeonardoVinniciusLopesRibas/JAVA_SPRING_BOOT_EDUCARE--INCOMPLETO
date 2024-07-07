@@ -31,9 +31,16 @@ public class Crianca {
     @Size(min = 2, max = 100, message = "NOME DA CRIANÇA DEVE TER ENTRE 2 E 100 CARACTERES")
     @Column(length = 100)
     private String nome;
+    @ManyToOne
+    @JoinColumn(name = "pai_id")
     private Pai pai;
-   // private Mae mae;
 
+    @ManyToOne
+    @JoinColumn(name = "mae_id")
+    private Mae mae;
+
+    @ManyToOne
+    @JoinColumn(name = "responsavel_id")
     private Responsavel responsavel;
 
     private boolean restricaoAlimentarTrue;
