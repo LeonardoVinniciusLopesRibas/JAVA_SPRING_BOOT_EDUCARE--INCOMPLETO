@@ -35,7 +35,7 @@ public class UsuarioController {
     public ResponseEntity<Usuario> cadastrar(@RequestBody @Valid Usuario usuario, UriComponentsBuilder builder){
         Usuario existingUser = usuarioService.findByEmail(usuario.getEmail());
         if(existingUser != null){
-            throw new RuntimeException("Email já cadastrado");
+            return ResponseEntity.badRequest().body(existingUser);
         }
         usuarioService.cadastrarUsuario(usuario);
         URI uri = builder.path("/educare/usuario/get/{id}").buildAndExpand(usuario.getId()).toUri();
