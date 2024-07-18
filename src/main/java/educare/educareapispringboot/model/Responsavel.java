@@ -71,6 +71,7 @@ public class Responsavel {
     private String complemento;
     private String unidade;
     private String bairro;
+    private String localidade;
     private String uf;
     private String ibge;
     private String gia;
