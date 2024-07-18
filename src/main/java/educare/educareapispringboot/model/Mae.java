@@ -65,6 +65,9 @@ public class Mae {
     @NotNull(message = "MARQUE SE É WHATSAPP OU NÃO")
     private boolean telefoneReservaWhatsapp;
 
+    @OneToOne
+    @JoinColumn(name = "pai_id")
+    private Pai pai;
 
     private String cep;
     private String logradouro;

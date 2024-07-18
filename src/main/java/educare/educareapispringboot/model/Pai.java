@@ -65,6 +65,10 @@ public class Pai {
     @NotNull(message = "MARQUE SE É WHATSAPP OU NÃO")
     private boolean telefoneReservaWhatsapp;
 
+    @OneToOne
+    @JoinColumn(name = "mae_id")
+    private Mae mae;
+
     private String cep;
     private String logradouro;
     private String complemento;
