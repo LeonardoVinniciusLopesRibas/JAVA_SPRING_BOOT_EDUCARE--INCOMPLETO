@@ -81,8 +81,5 @@ public class Responsavel {
     @NotNull(message = "ATIVO NÃO PODE FICAR VAZIO")
     private boolean ativo;
 
-    @Lob
-    @Column(name = "qrCodeMae")
-    private String qrCode;
 
 }
