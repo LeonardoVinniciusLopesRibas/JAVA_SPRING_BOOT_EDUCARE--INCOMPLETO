@@ -1,6 +1,7 @@
 package educare.educareapispringboot.controller;
 
 import educare.educareapispringboot.dto.UsuarioRequestValidation;
+import educare.educareapispringboot.exception.UsuarioDuplicadoException;
 import educare.educareapispringboot.model.Usuario;
 import educare.educareapispringboot.service.UsuarioService;
 import jakarta.validation.Valid;
@@ -33,9 +34,9 @@ public class UsuarioController {
 
     @PostMapping("/cadastrar")
     public ResponseEntity<Usuario> cadastrar(@RequestBody @Valid Usuario usuario, UriComponentsBuilder builder){
-        Usuario existingUser = usuarioService.findByEmail(usuario.getEmail());
+        Usuario existingUser = usuarioService.findByEmail(usuario.getUsuario());
         if(existingUser != null){
-            return ResponseEntity.badRequest().body(existingUser);
+            throw new UsuarioDuplicadoException("Usuário já cadastrado com este nome.");
         }
         usuarioService.cadastrarUsuario(usuario);
         URI uri = builder.path("/educare/usuario/get/{id}").buildAndExpand(usuario.getId()).toUri();

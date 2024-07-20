@@ -35,4 +35,10 @@ public class ExceptionHandlerController {
 
     }
 
+    @ExceptionHandler(UsuarioDuplicadoException.class)
+    public ResponseEntity<ApiException> handleUsuarioDuplicadoException(UsuarioDuplicadoException ex) {
+        ApiException apiException = new ApiException(ex.getMessage());
+        return new ResponseEntity<>(apiException, HttpStatus.BAD_REQUEST);
+    }
+
 }

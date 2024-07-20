@@ -15,11 +15,10 @@ import lombok.Setter;
 @NoArgsConstructor
 public class UsuarioRequestValidation {
 
-    @Email(message = "Email não é válido")
-    @NotNull(message = "Email não pode ficar vazio")
-    @NotEmpty(message = "Email não pode ficar em branco")
-    @NotBlank(message = "Email não pode ficar em branco")
-    private String email;
+    @NotNull(message = "USUÁRIO não pode ficar vazio")
+    @NotEmpty(message = "USUÁRIO não pode ficar em branco")
+    @NotBlank(message = "USUÁRIO não pode ficar em branco")
+    private String usuario;
 
     @NotNull(message = "Senha não pode ficar vazio")
     @NotEmpty(message = "Senha não pode ficar em branco")

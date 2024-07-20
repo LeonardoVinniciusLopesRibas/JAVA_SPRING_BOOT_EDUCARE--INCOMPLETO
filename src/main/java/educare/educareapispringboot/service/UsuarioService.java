@@ -16,7 +16,7 @@ public class UsuarioService {
 
 
     public Usuario validaUsuario(UsuarioRequestValidation urv) {
-        return usuarioRepository.findByEmailAndSenhaAndAtivoTrue(urv.getEmail(), urv.getSenha());
+        return usuarioRepository.findByUsuarioAndSenhaAndAtivoTrue(urv.getUsuario(), urv.getSenha());
     }
 
     public Usuario getId(Long id) {
@@ -32,7 +32,7 @@ public class UsuarioService {
 
 
     public Usuario findByEmail(String email) {
-        return usuarioRepository.findByEmail(email);
+        return usuarioRepository.findByUsuario(email);
     }
 
 }

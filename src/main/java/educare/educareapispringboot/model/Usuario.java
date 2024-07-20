@@ -26,12 +26,11 @@ public class Usuario {
     @Column(length = 100)
     private String nome;
 
-    @Email(message = "EMAIL NÃO É VÁLIDO")
-    @NotNull(message = "EMAIL NÃO PODE FICAR NULO")
-    @NotEmpty(message = "EMAIL PRECISA SER PREENCHIDO")
-    @NotBlank(message = "EMAIL NÃO PODE FICAR EM BRANCO")
+    @NotNull(message = "USUÁRIO NÃO PODE FICAR NULO")
+    @NotEmpty(message = "USUÁRIO PRECISA SER PREENCHIDO")
+    @NotBlank(message = "USUÁRIO NÃO PODE FICAR EM BRANCO")
     @Column(length = 100, unique = true)
-    private String email;
+    private String usuario;
 
     @Column(length = 1000)
     @NotNull(message = "SENHA NÃO PODE FICAR NULO")
