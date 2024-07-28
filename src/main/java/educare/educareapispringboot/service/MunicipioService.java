@@ -20,9 +20,8 @@ public class MunicipioService {
         return municipio.orElse(null);
     }
 
-    public Municipio cadastrarMunicipio(Municipio municipio) {
-        municipioRepository.save(municipio);
-        return municipio;
+    public List<Municipio> cadastrarMunicipios(List<Municipio> municipio) {
+        return municipioRepository.saveAll(municipio);
     }
 
     public List<Municipio> getTudo() {

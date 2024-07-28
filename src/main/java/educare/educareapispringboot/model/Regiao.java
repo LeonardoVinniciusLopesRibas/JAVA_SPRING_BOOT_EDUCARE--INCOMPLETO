@@ -22,6 +22,4 @@ public class Regiao {
     @NotBlank(message = "O nome da região não pode estar em branco")
     private String nome;
 
-
-
 }

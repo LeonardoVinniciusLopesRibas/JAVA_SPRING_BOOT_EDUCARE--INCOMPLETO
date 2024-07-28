@@ -30,9 +30,9 @@ public class MunicipioController {
     }
 
     @PostMapping("/cadastrar")
-    public ResponseEntity<Municipio> cadastrarMunicipio(@RequestBody @Valid Municipio municipio, UriComponentsBuilder uriBuilder) {
-        municipioService.cadastrarMunicipio(municipio);
-        URI uri = uriBuilder.path("/municipio/{id}").buildAndExpand(municipio.getId()).toUri();
-        return ResponseEntity.created(uri).body(municipio);
+    public ResponseEntity<List<Municipio>> cadastrarMunicipio(@RequestBody @Valid List<Municipio> municipios, UriComponentsBuilder uriBuilder) {
+        List<Municipio> municipiosCadastrados = municipioService.cadastrarMunicipios(municipios);
+        URI uri = uriBuilder.path("/educare/municipio/get").build().toUri();
+        return ResponseEntity.created(uri).body(municipios);
     }
 }

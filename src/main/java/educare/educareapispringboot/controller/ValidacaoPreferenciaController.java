@@ -2,6 +2,7 @@ package educare.educareapispringboot.controller;
 
 import educare.educareapispringboot.model.ValidacaoPreferencia;
 import educare.educareapispringboot.service.ValidacaoPreferenciaService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -22,14 +23,14 @@ public class ValidacaoPreferenciaController {
         return ResponseEntity.ok(vps.getId(id));
     }
 
-    @RequestMapping("/setTrue")
-    public ResponseEntity<ValidacaoPreferencia> setTrue (ValidacaoPreferencia validacaoPreferencia, UriComponentsBuilder uriBuilder) {
+    @PostMapping("/setTrue")
+    public ResponseEntity<ValidacaoPreferencia> setTrue (@RequestBody @Valid ValidacaoPreferencia validacaoPreferencia, UriComponentsBuilder uriBuilder) {
         vps.setTrue(validacaoPreferencia);
         URI uri = uriBuilder.path("/educare/validacao/get/{id}").buildAndExpand(validacaoPreferencia.getId()).toUri();
         return ResponseEntity.created(uri).body(validacaoPreferencia);
     }
 
-    @RequestMapping("/checkSetTrue")
+    @GetMapping("/checkSetTrue")
     public ResponseEntity<Boolean> check (){
         return ResponseEntity.ok(vps.check());
     }

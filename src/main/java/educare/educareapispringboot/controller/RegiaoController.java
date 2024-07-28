@@ -30,10 +30,10 @@ public class RegiaoController {
     }
 
     @PostMapping("/cadastrar")
-    public ResponseEntity<Regiao> cadastrarRegiao(@RequestBody @Valid Regiao regiao, UriComponentsBuilder uriBuilder) {
-        regiaoService.cadastrarRegiao(regiao);
-        URI uri = uriBuilder.path("educare/regiao/get/{id}").buildAndExpand(regiao.getId()).toUri();
-        return ResponseEntity.created(uri).body(regiao);
+    public ResponseEntity<List<Regiao>> cadastrarRegioes(@RequestBody @Valid List<Regiao> regioes, UriComponentsBuilder uriBuilder) {
+        List<Regiao> regioesCadastradas = regiaoService.cadastrarRegioes(regioes);
+        URI uri = uriBuilder.path("/educare/regiao/get").build().toUri();
+        return ResponseEntity.created(uri).body(regioesCadastradas);
     }
 
 

@@ -20,9 +20,8 @@ public class RegiaoService {
         return regiao.orElse(null);
     }
 
-    public Regiao cadastrarRegiao(Regiao regiao) {
-        regiaoRepository.save(regiao);
-        return regiao;
+    public List<Regiao> cadastrarRegioes(List<Regiao> regioes) {
+        return regiaoRepository.saveAll(regioes);
     }
 
     public List<Regiao> getTudo() {

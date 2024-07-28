@@ -30,9 +30,10 @@ public class EstadoController {
     }
 
     @PostMapping("/cadastrar")
-    public ResponseEntity<Estado> cadastrarEstado(@RequestBody @Valid Estado estado, UriComponentsBuilder uriBuilder) {
-        estadoService.cadastrarEstado(estado);
-        URI uri = uriBuilder.path("/estado/{id}").buildAndExpand(estado.getId()).toUri();
-        return ResponseEntity.created(uri).body(estado);
+    public ResponseEntity<List<Estado>> cadastrarEstado(@RequestBody @Valid List<Estado> estados, UriComponentsBuilder uriBuilder) {
+        List<Estado> estadosCadastrados = estadoService.cadastrarEstados(estados);
+
+        URI uri = uriBuilder.path("/educare/estado/get").build().toUri();
+        return ResponseEntity.created(uri).body(estadosCadastrados);
     }
 }
