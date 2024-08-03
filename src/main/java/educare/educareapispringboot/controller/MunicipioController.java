@@ -1,5 +1,6 @@
 package educare.educareapispringboot.controller;
 
+import educare.educareapispringboot.dto.MunicipioDtoResponse;
 import educare.educareapispringboot.model.Municipio;
 import educare.educareapispringboot.service.MunicipioService;
 import jakarta.validation.Valid;
@@ -27,6 +28,11 @@ public class MunicipioController {
     @GetMapping("/get")
     public ResponseEntity<List<Municipio>> getMunicipios() {
         return ResponseEntity.ok(municipioService.getTudo());
+    }
+
+    @GetMapping("/get/uf/{uf_estado}")
+    public ResponseEntity<List<MunicipioDtoResponse>> getMunicipioByUf(@PathVariable String uf_estado){
+        return ResponseEntity.ok(municipioService.getMunicipioByEstado(uf_estado.toUpperCase()));
     }
 
     @PostMapping("/cadastrar")

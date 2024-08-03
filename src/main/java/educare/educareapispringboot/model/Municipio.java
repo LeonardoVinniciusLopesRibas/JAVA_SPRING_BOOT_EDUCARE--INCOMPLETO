@@ -32,7 +32,7 @@ public class Municipio {
     private String nome;
 
     @NotNull(message = "A uf do estado não pode ser nulo")
-    private String uf_estado;
+    private String uf;
 
 
 
