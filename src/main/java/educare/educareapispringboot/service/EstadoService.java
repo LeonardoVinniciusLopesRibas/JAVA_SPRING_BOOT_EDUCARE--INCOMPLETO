@@ -1,5 +1,6 @@
 package educare.educareapispringboot.service;
 
+import educare.educareapispringboot.dto.EstadoDtoResponse;
 import educare.educareapispringboot.model.Estado;
 import educare.educareapispringboot.model.Regiao;
 import educare.educareapispringboot.repository.EstadoRepository;
@@ -10,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class EstadoService {
@@ -33,8 +35,23 @@ public class EstadoService {
         return estadoRepository.saveAll(estados);
     }
 
+    public List<EstadoDtoResponse> getSiglaUf() {
+        Sort sort = Sort.by(Sort.Direction.ASC, "siglaUf");
+
+        List<Estado> estados = estadoRepository.findAll(sort);
+
+        return estados.stream()
+                .map(estado -> {
+                    EstadoDtoResponse dto = new EstadoDtoResponse();
+                    dto.setId(estado.getId());
+                    dto.setSiglaUf(estado.getSiglaUf());
+                    return dto;
+                })
+                .collect(Collectors.toList());
+    }
+
     public List<Estado> getTudo() {
-        Sort sort = Sort.by(Sort.Direction.ASC, "nome");
+        Sort sort = Sort.by(Sort.Direction.ASC, "nomeUf");
         return estadoRepository.findAll(sort);
     }
 }

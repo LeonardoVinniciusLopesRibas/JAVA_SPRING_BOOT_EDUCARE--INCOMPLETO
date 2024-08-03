@@ -1,8 +1,10 @@
 package educare.educareapispringboot.controller;
 
+import educare.educareapispringboot.dto.EstadoDtoResponse;
 import educare.educareapispringboot.model.Estado;
 import educare.educareapispringboot.service.EstadoService;
 import jakarta.validation.Valid;
+import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -27,6 +29,11 @@ public class EstadoController {
     @GetMapping("/get")
     public ResponseEntity<List<Estado>> getEstados() {
         return ResponseEntity.ok(estadoService.getTudo());
+    }
+
+    @GetMapping("/get/nomes")
+    public ResponseEntity<List<EstadoDtoResponse>> getNomeEstados(){
+        return ResponseEntity.ok(estadoService.getSiglaUf());
     }
 
     @PostMapping("/cadastrar")
