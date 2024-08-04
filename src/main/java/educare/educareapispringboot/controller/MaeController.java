@@ -31,4 +31,9 @@ public class MaeController {
         return ResponseEntity.ok(maeService.getMaeById(id));
     }
 
+    @GetMapping("/getMaeById/{id}")
+    public ResponseEntity<Mae> getById(@PathVariable Long id){
+        return ResponseEntity.ok(maeService.getById(id));
+    }
+
 }

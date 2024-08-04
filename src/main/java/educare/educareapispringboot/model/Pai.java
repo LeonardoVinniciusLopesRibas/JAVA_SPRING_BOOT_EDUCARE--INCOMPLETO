@@ -39,7 +39,7 @@ public class Pai {
     @NotEmpty(message = "TELEFONE DO PAI PRECISA SER PREENCHIDO")
     @NotBlank(message = "TELEFONE DO PAI NÃO PODE FICAR EM BRANCO")
     @Column(length = 11)
-    @Size(min = 11, max = 11, message = "TELEFONE DO PAI DEVE CONTER 11 CARACTERES")
+    @Size(min = 10, max = 11, message = "TELEFONE DO PAI DEVE CONTER 11 CARACTERES")
     private String telefonePai;
 
     @NotNull(message = "MARQUE SE É WHATSAPP OU NÃO")
@@ -59,7 +59,7 @@ public class Pai {
     @NotEmpty(message = "TELEFONE DO CONTATO RESERVA DO PAI PRECISA SER PREENCHIDO")
     @NotBlank(message = "TELEFONE DO CONTATO RESERVA DO PAI NÃO PODE FICAR EM BRANCO")
     @Column(length = 11)
-    @Size(min = 11, max = 11, message = "TELEFONE DO CONTATO RESERVA DO PAI DEVE CONTER 11 CARACTERES")
+    @Size(min = 10, max = 11, message = "TELEFONE DO CONTATO RESERVA DO PAI DEVE CONTER 11 CARACTERES")
     private String telefoneReserva;
 
     @NotNull(message = "MARQUE SE É WHATSAPP OU NÃO")

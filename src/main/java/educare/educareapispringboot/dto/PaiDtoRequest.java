@@ -31,7 +31,7 @@ public class PaiDtoRequest {
     @NotNull(message = "TELEFONE DO PAI NÃO PODE FICAR NULO")
     @NotEmpty(message = "TELEFONE DO PAI PRECISA SER PREENCHIDO")
     @NotBlank(message = "TELEFONE DO PAI NÃO PODE FICAR EM BRANCO")
-    @Size(min = 11, max = 11, message = "TELEFONE DO PAI DEVE CONTER 11 CARACTERES")
+    @Size(min = 10, max = 11, message = "TELEFONE DO PAI DEVE CONTER 11 CARACTERES")
     private String telefonePai;
 
     @NotNull(message = "MARQUE SE É WHATSAPP OU NÃO")
@@ -49,7 +49,7 @@ public class PaiDtoRequest {
     @NotNull(message = "TELEFONE DO CONTATO RESERVA DO PAI NÃO PODE FICAR NULO")
     @NotEmpty(message = "TELEFONE DO CONTATO RESERVA DO PAI PRECISA SER PREENCHIDO")
     @NotBlank(message = "TELEFONE DO CONTATO RESERVA DO PAI NÃO PODE FICAR EM BRANCO")
-    @Size(min = 11, max = 11, message = "TELEFONE DO CONTATO RESERVA DO PAI DEVE CONTER 11 CARACTERES")
+    @Size(min = 10, max = 11, message = "TELEFONE DO CONTATO RESERVA DO PAI DEVE CONTER 11 CARACTERES")
     private String telefoneReserva;
 
     @NotNull(message = "MARQUE SE É WHATSAPP OU NÃO")

@@ -1,5 +1,6 @@
 package educare.educareapispringboot.controller;
 
+import educare.educareapispringboot.exception.CpfDuplicado;
 import educare.educareapispringboot.model.Pai;
 import educare.educareapispringboot.service.PaiService;
 import jakarta.validation.Valid;
@@ -28,7 +29,7 @@ public class PaiController {
     public ResponseEntity<Pai> cadastrar(@RequestBody @Valid Pai pai, UriComponentsBuilder builder) {
         Pai existingPai = paiService.findByCpf(pai.getCpfPai());
         if (existingPai != null) {
-            return ResponseEntity.badRequest().body(existingPai);
+            throw new CpfDuplicado("Pai já cadastrado com esse CPF");
         }
         paiService.cadastrarPai(pai);
         URI uri = builder.path("/educare/pai/get/{id}").buildAndExpand(pai.getId()).toUri();
