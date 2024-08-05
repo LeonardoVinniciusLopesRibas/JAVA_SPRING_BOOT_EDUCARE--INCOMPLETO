@@ -18,7 +18,7 @@ public class MaeService {
     private MaeRepository maeRepository;
 
     public List<MaeDtoResponse> buscaMae(String query) {
-        List<Mae> allMaes = maeRepository.findAll();
+        List<Mae> allMaes = maeRepository.findAllByAtivoIsTrue();
         String lowerCaseQuery = query.toLowerCase();
 
         return allMaes.stream()
