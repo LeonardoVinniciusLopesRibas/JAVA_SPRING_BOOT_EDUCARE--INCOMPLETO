@@ -2,6 +2,7 @@ package educare.educareapispringboot.service;
 
 import educare.educareapispringboot.dto.MaeDtoResponse;
 import educare.educareapispringboot.model.Mae;
+import educare.educareapispringboot.model.Pai;
 import educare.educareapispringboot.repository.MaeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -76,4 +77,5 @@ public class MaeService {
         Optional<Mae> mae = maeRepository.findById(id);
         return mae.orElse(null);
     }
+
 }
