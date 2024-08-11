@@ -1,6 +1,5 @@
 package educare.educareapispringboot.repository;
 
-import educare.educareapispringboot.dto.PaiDtoResponse;
 import educare.educareapispringboot.model.Pai;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.JpaRepository;

@@ -9,7 +9,7 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class PaiDtoResponse {
+public class MaeDtoResponseTable {
 
     private Long id;
     private String nome;

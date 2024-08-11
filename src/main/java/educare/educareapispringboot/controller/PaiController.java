@@ -1,6 +1,6 @@
 package educare.educareapispringboot.controller;
 
-import educare.educareapispringboot.dto.PaiDtoResponse;
+import educare.educareapispringboot.dto.PaiDtoResponseTable;
 import educare.educareapispringboot.exception.CpfDuplicado;
 import educare.educareapispringboot.model.Pai;
 import educare.educareapispringboot.service.PaiService;
@@ -39,8 +39,8 @@ public class PaiController {
     }
 
     @GetMapping("/get/pai")
-    public ResponseEntity<List<PaiDtoResponse>> getPai(@RequestParam String nome, @RequestParam String cpf, @RequestParam String telefone, @RequestParam String endereco) {
-        List<PaiDtoResponse> paiDtoResponseList = paiService.getPai(nome, cpf, telefone, endereco);
+    public ResponseEntity<List<PaiDtoResponseTable>> getPai(@RequestParam String nome, @RequestParam String cpf, @RequestParam String telefone, @RequestParam String endereco) {
+        List<PaiDtoResponseTable> paiDtoResponseList = paiService.getPai(nome, cpf, telefone, endereco);
         if(paiDtoResponseList.isEmpty()) {
             return ResponseEntity.noContent().build();
         }
@@ -53,8 +53,8 @@ public class PaiController {
     }
 
     @GetMapping("/get/pai/desativados")
-    public ResponseEntity<List<PaiDtoResponse>> getPaiDesativados(@RequestParam String nome, @RequestParam String cpf, @RequestParam String telefone, @RequestParam String endereco) {
-        List<PaiDtoResponse> paiDtoResponseList = paiService.getPaiReativar(nome, cpf, telefone, endereco);
+    public ResponseEntity<List<PaiDtoResponseTable>> getPaiDesativados(@RequestParam String nome, @RequestParam String cpf, @RequestParam String telefone, @RequestParam String endereco) {
+        List<PaiDtoResponseTable> paiDtoResponseList = paiService.getPaiReativar(nome, cpf, telefone, endereco);
         if(paiDtoResponseList.isEmpty()) {
             return ResponseEntity.noContent().build();
         }

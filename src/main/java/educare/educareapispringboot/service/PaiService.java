@@ -1,6 +1,6 @@
 package educare.educareapispringboot.service;
 
-import educare.educareapispringboot.dto.PaiDtoResponse;
+import educare.educareapispringboot.dto.PaiDtoResponseTable;
 import educare.educareapispringboot.model.Pai;
 import educare.educareapispringboot.repository.PaiRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,7 +31,7 @@ public class PaiService {
         return paiRepository.save(pai);
     }
 
-    public List<PaiDtoResponse> getPai(String nome, String cpf, String telefone, String endereco) {
+    public List<PaiDtoResponseTable> getPai(String nome, String cpf, String telefone, String endereco) {
         Sort sort = Sort.by(Sort.Direction.ASC, "nomeCompletoPai");
 
         List<Pai> pais = paiRepository.findAllByAtivoIsTrue(sort);
@@ -49,7 +49,7 @@ public class PaiService {
                             (enderecoLowerCase == null || pai.getLogradouro().toLowerCase().contains(enderecoLowerCase));
                     return matches;
                 })
-                .map(pai -> new PaiDtoResponse(
+                .map(pai -> new PaiDtoResponseTable(
                         pai.getId(),
                         pai.getNomeCompletoPai(),
                         pai.getCpfPai(),
@@ -67,7 +67,7 @@ public class PaiService {
         return paiRepository.save(pai);
     }
 
-    public List<PaiDtoResponse> getPaiReativar(String nome, String cpf, String telefone, String endereco) {
+    public List<PaiDtoResponseTable> getPaiReativar(String nome, String cpf, String telefone, String endereco) {
         Sort sort = Sort.by(Sort.Direction.ASC, "nomeCompletoPai");
 
         List<Pai> pais = paiRepository.findAllByAtivoIsFalse(sort);
@@ -85,7 +85,7 @@ public class PaiService {
                             (enderecoLowerCase == null || pai.getLogradouro().toLowerCase().contains(enderecoLowerCase));
                     return matches;
                 })
-                .map(pai -> new PaiDtoResponse(
+                .map(pai -> new PaiDtoResponseTable(
                         pai.getId(),
                         pai.getNomeCompletoPai(),
                         pai.getCpfPai(),
