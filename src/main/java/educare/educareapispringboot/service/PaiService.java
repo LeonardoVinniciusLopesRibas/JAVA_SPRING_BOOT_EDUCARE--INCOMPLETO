@@ -102,4 +102,8 @@ public class PaiService {
         pai.setAtivo(true);
         return paiRepository.save(pai);
     }
+
+    public Pai putPai(Pai pai) {
+        return paiRepository.save(pai);
+    }
 }

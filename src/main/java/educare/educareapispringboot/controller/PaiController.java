@@ -65,4 +65,11 @@ public class PaiController {
         return ResponseEntity.ok(paiService.reativarPai(id));
     }
 
+    @PutMapping("/put/pai")
+    public ResponseEntity<Pai> putPai(@RequestBody @Valid Pai pai){
+        Pai atualizado = paiService.putPai(pai);
+        return ResponseEntity.ok(atualizado);
+
+    }
+
 }
